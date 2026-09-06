@@ -1,0 +1,168 @@
+/* ============================================================
+   NEXUS — Screen-level styles
+   ============================================================ */
+
+.screen-header {
+  padding: var(--s-6) 0 var(--s-4);
+}
+.screen-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+/* ---- stat chips -------------------------------------------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: var(--s-3);
+}
+.stat {
+  padding: var(--s-4);
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+/* ---- Today: hero recovery ---------------------------------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-4);
+}
+@media (min-width: 560px) {
+  .hero-grid { grid-template-columns: 150px 1fr; align-items: center; }
+}
+
+/* ---- Lists ------------------------------------------------- */
+.checklist {
+  display: flex;
+  flex-direction: column;
+}
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-4);
+  padding: 13px 0;
+}
+.check-row + .check-row { border-top: 1px solid var(--hairline); }
+.check-row__main { flex: 1 1 auto; min-width: 0; }
+.check-row.done .check-row__title {
+  color: var(--text-3);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255,255,255,0.18);
+}
+
+/* ---- next action ------------------------------------------- */
+.next-card {
+  position: relative;
+  overflow: hidden;
+}
+.next-card .tex-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  mask-image: linear-gradient(90deg, transparent, #000 60%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%);
+}
+
+/* ---- metric list (system status) --------------------------- */
+.sys-rows {
+  display: flex;
+  flex-direction: column;
+}
+.sys-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: 11px 0;
+}
+.sys-row + .sys-row { border-top: 1px solid var(--hairline); }
+.sys-row__label { width: 104px; flex: 0 0 auto; }
+
+/* priority checkbox button */
+.tick-check { display: inline-flex; margin-top: 1px; }
+.check-row__glyph {
+  width: 30px; height: 30px; flex: 0 0 auto; border-radius: 9px;
+  background: var(--glass-tint-strong); border: 1px solid var(--border);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--text-3);
+}
+.check-row__target {
+  flex: 0 0 auto; text-align: right;
+  border: 1px dashed var(--border-strong); border-radius: 7px;
+  padding: 4px 8px; white-space: nowrap;
+}
+
+/* ---- segmented control + range + choice --------------------- */
+.seg {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--surface-0);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+}
+.seg__btn {
+  flex: 1;
+  padding: 8px 6px;
+  font-size: 13px;
+  color: var(--text-3);
+  border-radius: 8px;
+  transition: all var(--t-fast) var(--ease);
+  white-space: nowrap;
+}
+.seg__btn:hover { color: var(--text-2); }
+.seg__btn.is-active {
+  background: var(--surface-3);
+  color: var(--text-1);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset;
+}
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-4);
+  outline: none;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #dfe3e8;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+.range::-moz-range-thumb {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #dfe3e8; border: 2px solid #fff; cursor: pointer;
+}
+.choice {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px;
+  transition: all var(--t-fast) var(--ease);
+}
+.choice--on { border-color: rgba(108,201,154,0.45); background: rgba(108,201,154,0.06); }
+
+/* ---- insight panel ----------------------------------------- */
+.insight {
+  background: linear-gradient(180deg, rgba(23,27,33,0.6), rgba(16,19,23,0.9));
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+.insight__bar { height: 2px; }
+
+/* ---- build queue note -------------------------------------- */
+.note-queue {
+  margin-top: var(--s-7);
+  padding: var(--s-5);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-md);
+  background: rgba(255,255,255,0.01);
+}
